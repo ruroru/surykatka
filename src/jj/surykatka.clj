@@ -6,6 +6,9 @@
 (def ^:const ^:private magic-numbers
   (edn/read-string (slurp (io/resource "resources/signatures.edn"))))
 
+(def ^:const ^:private default-config
+  {:check-footer true})
+
 (defn- matches-signature? [expected array]
   (cond
     (and (empty? expected) (empty? array)) true
@@ -31,29 +34,37 @@
     (and (matches-signature? header-value starting-bits)
          (matches-signature? footer-value ending-bits))))
 
-(defn- detect-type [data-in-bytes]
+
+(defn- detect-type [data-in-bytes config]
   (some (fn [arg]
           (when
             (some (fn [header-value]
                     (cond
-                      (:offset arg) (verify-header header-value data-in-bytes (:offset arg))
-                      (:footer arg) (verify-header-and-footer header-value (:footer arg) data-in-bytes)
+                      (not (nil? (:offset arg)))
+                      (verify-header header-value data-in-bytes (:offset arg))
+
+                      (and (not (nil? (:footer arg))) (:check-footer config))
+                      (verify-header-and-footer header-value (:footer arg) data-in-bytes)
+
                       :else
                       (verify-header header-value data-in-bytes)))
                   (:headers arg))
             arg))
         magic-numbers))
 
-(defn get-file-type [file]
+
+(defn get-file-type
   "Detects the file type (extension) of a byte array based on magic number signatures.
  Returns the keyword representing the file extension if detected, otherwise nil."
-  (if (bytes? file)
-    (:extension (detect-type file))
-    (logger/error "Not a byte array.")))
+  ([file] (get-file-type file {}))
+  ([file config] (if (bytes? file)
+                   (:extension (detect-type file (merge default-config config)))
+                   (logger/error "Not a byte array."))))
 
-(defn get-mime [file]
-  "Detects the MIME type of a byte array based on magic number signatures.
+(defn get-mime
+  "Detects the MIME type of byte array based on magic number signatures.
   Returns the MIME type string if detected, otherwise nil."
-  (if (bytes? file)
-    (:mime (detect-type file))
-    (logger/error "Not a byte array.")))
+  ([file] (get-mime file {}))
+  ([file config] (if (bytes? file)
+                   (:mime (detect-type file (merge default-config config)))
+                   (logger/error "Not a byte array."))))

@@ -38,5 +38,10 @@
                                  "application/zip" "test/resources/file.zip"))
 
 (deftest should-fail-because-of-wrong-footer
-  (are [file-path] (= nil (surykatka/get-mime (.readAllBytes (FileInputStream. (File. ^String file-path)))))
+  (are [file-path] (= nil (surykatka/get-mime (.readAllBytes (FileInputStream. (File. ^String file-path)))
+                                              {:check-footer true}))
+                   "test/resources/file.wrong-footer.jpg"))
+
+(deftest should-return-correct-type-without-verifying-footer
+  (are [file-path] (= :jpeg (surykatka/get-file-type (.readAllBytes (FileInputStream. (File. ^String file-path))) {:check-footer false}))
                    "test/resources/file.wrong-footer.jpg"))

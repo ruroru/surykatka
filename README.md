@@ -1,8 +1,10 @@
 # Surykatka
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.jj/surykatka.svg)](https://clojars.org/org.clojars.jj/surykatka)
 
 A Clojure library that identifies file type based on magic numbers.
 
 ## Installation
+Add surykatka to your dependency list with:
 
 ```[org.clojars.jj/surykatka "1.0.0"]```
 
@@ -14,6 +16,12 @@ A Clojure library that identifies file type based on magic numbers.
 (= :postscript (surykatka/get-file-type (.readAllBytes (FileInputStream. (File. "test/resources/file.ps"))))) 
 (= "image/jpeg" (surykatka/get-mime (.readAllBytes (FileInputStream. (File. "test/resources/file.jpg"))))) 
 ```
+If verification of trailing bytes is not wanted:
+``` clojure
+(= "image/jpeg" (surykatka/get-mime (.readAllBytes (FileInputStream. (File. "test/resources/file.jpg"))) {:check-footer false} )) 
+```
+
+
 
 | suppported-types | 
 |------------------| 
