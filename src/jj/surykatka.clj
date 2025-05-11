@@ -1,21 +1,10 @@
 (ns jj.surykatka
-  (:require [clojure.data.json :as json]
+  (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.tools.logging :as logger]))
 
 (def ^:const ^:private magic-numbers
-  (json/read-str (slurp (io/resource "resources/signatures.json"))
-                 {:key-fn   keyword
-                  :value-fn (fn [k v]
-                              (cond (= k :extension) (keyword v)
-                                    (= k :headers) (map (fn [signature]
-                                                          (map (fn [byte-value]
-                                                                 (if (number? byte-value)
-                                                                   byte-value
-                                                                   (keyword byte-value)))
-                                                               signature))
-                                                        v)
-                                    :else v))}))
+  (edn/read-string (slurp (io/resource "resources/signatures.edn"))))
 
 (defn- matches-signature? [expected array]
   (cond
