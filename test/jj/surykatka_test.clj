@@ -21,6 +21,7 @@
                                  :xml "test/resources/file.xml"
                                  :xz "test/resources/file.xz"
                                  :zip "test/resources/file.zip"
+                                 :x509-certificate-request "test/resources/file.csr"
                                  ))
 
 (deftest get-mime
