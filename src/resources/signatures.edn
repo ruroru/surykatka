@@ -1,23 +1,40 @@
 [
- {:extension :7z, :mime "application/7z", :headers ((55 122 -68 -81 39 28))}
- {:extension :bmp, :mime "image/bmp", :headers ((66 77))}
- {:extension :gif, :mime "image/gif", :headers ((71 73 70 56 55 97) (71 73 70 56 57 97))}
- {:extension :gzip, :mime "application/gzip", :headers ((31 -117))}
- {:extension :jpeg, :mime "image/jpeg", :footer [-1 -39], :headers ((-1 -40) (-1 -39))}
- {:extension :pdf, :mime "application/pdf", :headers ((37 80 68 70 45))}
- {:extension :png, :mime "image/png", :headers ((-119 80 78 71 13 10 26 10))}
- {:extension :postscript, :mime "application/postscript", :headers ((37 33 80 83))}
- {:extension :shellscript, :mime "text/x-shellscript", :headers ((35 33))}
- {:extension :tar, :mime "application/x-tar", :offset 257, :headers ((117 115 116 97 114 0 48 48) (117 115 116 97 114 32 32 0))}
- {:extension :webp, :mime "image/webp", :headers ((82 73 70 70 :any :any :any :any 87 69 66 80))}
- {:extension :xz, :mime "application/x-xz", :headers ((-3 55 122 88 90 0))}
- {:extension :jks, :mime "application/jks", :headers ((-2 -19 -2 -19))}
- {:extension :zip, :mime "application/zip", :headers ((80 75 3 4) (80 75 5 6) (80 75 7 8))}
- {:extension :db, :mime "application/vnd.sqlite3", :headers ((83 81 76 105 116 101 32 102 111 114 109 97 116 32 51 0))}
- {:extension :xml, :mime "application/xml", :headers ((60, 63, 120, 109, 108))}
- {:extension :x509-certificate, :mime "application/xml", :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 67, 69, 82, 84, 73, 70, 73, 67, 65, 84, 69, 45, 45, 45, 45, 45))}
- {:extension :x509-certificate-request, :mime "application/xml", :headers ((45 45 45 45 45 66 69 71 73 78 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45))}
- {:extension :x509-pkcs-private-key, :mime "application/xml", :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 80, 82, 73, 86, 65, 84, 69, 32, 75, 69, 89, 45, 45, 45, 45, 45))}
- {:extension :x509-dsa-private-key, :mime "application/xml", :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 68, 83, 65, 32, 80, 82, 73, 86, 65, 84, 69, 32, 75, 69, 89, 45, 45, 45, 45, 45))}
- {:extension :x509-rsa-private-key, :mime "application/xml", :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 82, 69, 65, 32, 80, 82, 73, 86, 65, 84, 65, 32, 75, 69, 89, 45, 45, 45, 45, 45))}
+ {:type :7z, :mime "application/7z", :headers ((55 122 -68 -81 39 28))}
+ {:type :bmp, :mime "image/bmp", :headers ((66 77))}
+ {:type :gif, :mime "image/gif", :headers ((71 73 70 56 55 97) (71 73 70 56 57 97))}
+ {:type :gzip, :mime "application/gzip", :headers ((31 -117))}
+ {:type :jpeg, :mime "image/jpeg", :footer ([-1 -39]), :headers ((-1 -40) (-1 -39))}
+ {:type :pdf, :mime "application/pdf", :headers ((37 80 68 70 45))}
+ {:type :png, :mime "image/png", :headers ((-119 80 78 71 13 10 26 10))}
+ {:type :postscript, :mime "application/postscript", :headers ((37 33 80 83))}
+ {:type :shellscript, :mime "text/x-shellscript", :headers ((35 33))}
+ {:type :tar, :mime "application/x-tar", :offset 257, :headers ((117 115 116 97 114 0 48 48) (117 115 116 97 114 32 32 0))}
+ {:type :webp, :mime "image/webp", :headers ((82 73 70 70 :any :any :any :any 87 69 66 80))}
+ {:type :xz, :mime "application/x-xz", :headers ((-3 55 122 88 90 0))}
+ {:type :jks, :mime "application/jks", :headers ((-2 -19 -2 -19))}
+ {:type :zip, :mime "application/zip", :headers ((80 75 3 4) (80 75 5 6) (80 75 7 8))}
+ {:type :db, :mime "application/vnd.sqlite3", :headers ((83 81 76 105 116 101 32 102 111 114 109 97 116 32 51 0))}
+ {:type :xml, :mime "application/xml", :headers ((60, 63, 120, 109, 108))}
+ {:type :x509-certificate, :mime "application/x-pem-file",
+  :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 67, 69, 82, 84, 73, 70, 73, 67, 65, 84, 69, 45, 45, 45, 45, 45))}
+ {:type    :x509-certificate-request, :mime "application/x-pem-file"
+  :headers ((45 45 45 45 45 66 69 71 73 78 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45))
+  :footer  ([45 45 45 45 45 69 78 68 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45]
+            [45 45 45 45 45 69 78 68 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45 13 10]
+            [45 45 45 45 45 69 78 68 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45 10])}
+ {:type    :x509-private-key, :mime "application/x-pem-file",
+  :headers ((45 45 45 45 45 66 69 71 73 78 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45))
+  :footer  ([45 45 45 45 45 69 78 68 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45]
+            [45 45 45 45 45 69 78 68 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 13 10]
+            [45 45 45 45 45 69 78 68 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 10])}
+ {:type    :x509-dsa-private-key, :mime "application/x-pem-file",
+  :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 68, 83, 65, 32, 80, 82, 73, 86, 65, 84, 69, 32, 75, 69, 89, 45, 45, 45, 45, 45))
+  :footer  ((45 45 45 45 45 69 78 68 32 68 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45)
+            (45 45 45 45 45 69 78 68 32 68 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 13 10)
+            (45 45 45 45 45 69 78 68 32 68 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 10))}
+ {:type    :x509-rsa-private-key, :mime "application/x-pem-file",
+  :headers ((45 45 45 45 45 66 69 71 73 78 32 82 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45))
+  :footer  ((45 45 45 45 45 69 78 68 32 82 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 13 10)
+            (45 45 45 45 45 69 78 68 32 82 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45 10)
+            (45 45 45 45 45 69 78 68 32 82 83 65 32 80 82 73 86 65 84 69 32 75 69 89 45 45 45 45 45))}
  ]

@@ -25,23 +25,28 @@ If verification of trailing bytes is not wanted:
 (= "image/jpeg" (surykatka/get-mime (.readAllBytes (FileInputStream. (File. "test/resources/file.jpg"))) {:check-footer false} )) 
 ```
 
-| suppported-types |
-|------------------|
-| 7z               |
-| bmp              |
-| db               |
-| gif              |
-| gzip             |
-| jpeg             |
-| pdf              |
-| png              |
-| postscript       |
-| shellscript      |
-| tar              |
-| webp             |
-| xml              |
-| xz               |
-| zip              |
+| suppported-types         |
+|--------------------------|
+| 7z                       |
+| bmp                      |
+| db                       |
+| gif                      |
+| gzip                     |
+| jpeg                     |
+| pdf                      |
+| png                      |
+| postscript               |
+| shellscript              |
+| tar                      |
+| webp                     |
+| x509-certificate         |
+| x509-certificate-request |
+| x509-dsa-private-key     |
+| x509-private-key         |
+| x509-rsa-private-key     |
+| xml                      |
+| xz                       |
+| zip                      |
 
 ## License
 

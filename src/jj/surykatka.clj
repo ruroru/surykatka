@@ -27,10 +27,10 @@
      (matches-signature? expected-starting-bits starting-bits))))
 
 (defn- verify-header-and-footer [header-value footer-value all-bytes]
-  (let [
-        header-count (count header-value)
+  (let [header-count (count header-value)
         starting-bits (into [] (take header-count all-bytes))
         ending-bits (into [] (take-last (count footer-value) all-bytes))]
+
     (and (matches-signature? header-value starting-bits)
          (matches-signature? footer-value ending-bits))))
 
@@ -44,7 +44,9 @@
                       (verify-header header-value data-in-bytes (:offset arg))
 
                       (and (not (nil? (:footer arg))) (:check-footer config))
-                      (verify-header-and-footer header-value (:footer arg) data-in-bytes)
+                      (some
+                        #(verify-header-and-footer header-value % data-in-bytes)
+                        (:footer arg))
 
                       :else
                       (verify-header header-value data-in-bytes)))
@@ -58,7 +60,7 @@
  Returns the keyword representing the file extension if detected, otherwise nil."
   ([file] (get-file-type file {}))
   ([file config] (if (bytes? file)
-                   (:extension (detect-type file (merge default-config config)))
+                   (:type (detect-type file (merge default-config config)))
                    (logger/error "Not a byte array."))))
 
 (defn get-mime
