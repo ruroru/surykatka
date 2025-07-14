@@ -15,8 +15,14 @@ Add surykatka to your dependency list with:
 ``` clojure
 (:require [jj.surykatka :as surykatka])
 
+;; byte array
 (= :postscript (surykatka/get-file-type (.readAllBytes (FileInputStream. (File. "test/resources/file.ps"))))) 
 (= "image/jpeg" (surykatka/get-mime (.readAllBytes (FileInputStream. (File. "test/resources/file.jpg"))))) 
+
+;; Or InputStream
+(= :jpeg (surykatka/get-file-type (FileInputStream. (File. ^String file-path))))
+
+
 ```
 
 If verification of trailing bytes is not wanted:
@@ -47,6 +53,12 @@ If verification of trailing bytes is not wanted:
 | xml                      |
 | xz                       |
 | zip                      |
+
+
+
+# Limitations
+* **Footer verification is disabled** when using InputStream inputs. Only header-based file type detection is performed since the library reads only the first 512 bytes for efficiency.
+* **Stream consumption**: InputStreams are partially consumed during file type detection. If you need to use the same InputStream after detection, wrap it with a `BufferedInputStream` and call `mark()` before passing it to the detection functions, then `reset()` afterward to rewind the stream.
 
 ## License
 
