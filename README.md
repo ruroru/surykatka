@@ -8,7 +8,7 @@ A Clojure library that identifies file type based on magic numbers.
 
 Add surykatka to your dependency list with:
 
-```[org.clojars.jj/surykatka "1.2.0"]```
+```[org.clojars.jj/surykatka "1.3.0"]```
 
 ## Usage
 
