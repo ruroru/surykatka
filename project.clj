@@ -1,4 +1,4 @@
-(defproject org.clojars.jj/surykatka "1.3.1"
+(defproject org.clojars.jj/surykatka "1.3.2-SNAPSHOT"
   :description "A Clojure library that identifies file type based on magic numbers."
 
   :url "https://github.com/ruroru/surykatka"
