@@ -31,17 +31,23 @@ If verification of trailing bytes is not wanted:
 (= "image/jpeg" (surykatka/get-mime (.readAllBytes (FileInputStream. (File. "test/resources/file.jpg"))) {:check-footer false} )) 
 ```
 
+<details>
+  <summary>Click to view supported types</summary>
+
 | suppported-types         |
 |--------------------------|
 | 7z                       |
 | bmp                      |
 | db                       |
+| elf                      |
+| exe                      |
 | gif                      |
 | gzip                     |
 | jpeg                     |
 | pdf                      |
 | png                      |
 | postscript               |
+| rar                      |
 | shellscript              |
 | tar                      |
 | webp                     |
@@ -54,11 +60,15 @@ If verification of trailing bytes is not wanted:
 | xz                       |
 | zip                      |
 
-
+</details>
 
 # Limitations
-* **Footer verification is disabled** when using InputStream inputs. Only header-based file type detection is performed since the library reads only the first 512 bytes for efficiency.
-* **Stream consumption**: InputStreams are partially consumed during file type detection. If you need to use the same InputStream after detection, wrap it with a `BufferedInputStream` and call `mark()` before passing it to the detection functions, then `reset()` afterward to rewind the stream.
+
+* **Footer verification is disabled** when using InputStream inputs. Only header-based file type detection is performed
+  since the library reads only the first 512 bytes for efficiency.
+* **Stream consumption**: InputStreams are partially consumed during file type detection. If you need to use the same
+  InputStream after detection, wrap it with a `BufferedInputStream` and call `mark()` before passing it to the detection
+  functions, then `reset()` afterward to rewind the stream.
 
 ## License
 

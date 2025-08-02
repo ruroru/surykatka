@@ -2,6 +2,9 @@
  {:type :7z, :mime "application/7z", :headers ((55 122 -68 -81 39 28))}
  {:type :bmp, :mime "image/bmp", :headers ((66 77))}
  {:type :gif, :mime "image/gif", :headers ((71 73 70 56 55 97) (71 73 70 56 57 97))}
+ {:type :exe :mime "application/octet-stream" :headers ((77 90 ))}
+ {:type :rar :mime "application/vnd.rar" :headers ((82 97 114 33 26 7 1 0))}
+ {:type :elf :mime "application/octet-stream" :headers ((127 69 76 70 ))}
  {:type :gzip, :mime "application/gzip", :headers ((31 -117))}
  {:type :jpeg, :mime "image/jpeg", :footer ([-1 -39]), :headers ((-1 -40) (-1 -39))}
  {:type :pdf, :mime "application/pdf", :headers ((37 80 68 70 45))}
