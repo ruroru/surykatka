@@ -16,17 +16,6 @@
   :resource-paths ["src/resources"]
   :profiles {:test {:global-vars {*warn-on-reflection* true}}}
 
-  :cljfmt {
-           :indentation?                          false
-           :remove-multiple-non-indenting-spaces? true
-           :split-keypairs-over-multiple-lines?   true
-           :sort-ns-references?                   true
-           :function-arguments-indentation        :cursive
-           }
-
-
   :plugins [[org.clojars.jj/bump "1.0.4"]
             [org.clojars.jj/strict-check "1.1.0"]
-            [org.clojars.jj/bump-md "1.1.0"]
-            [dev.weavejester/lein-cljfmt "0.13.3"]
-            [lein-ancient "0.7.0"]])
+            [org.clojars.jj/bump-md "1.1.0"]])
