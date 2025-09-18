@@ -28,5 +28,5 @@
   :plugins [[org.clojars.jj/bump "1.0.4"]
             [org.clojars.jj/strict-check "1.1.0"]
             [org.clojars.jj/bump-md "1.1.0"]
-            [dev.weavejester/lein-cljfmt "0.13.1"]
+            [dev.weavejester/lein-cljfmt "0.13.3"]
             [lein-ancient "0.7.0"]])
