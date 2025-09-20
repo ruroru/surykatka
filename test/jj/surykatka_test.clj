@@ -1,7 +1,7 @@
 (ns jj.surykatka-test
   (:require [clojure.test :refer [are deftest]]
             [jj.surykatka :as surykatka])
-  (:import (java.io BufferedInputStream File FileInputStream)))
+  (:import (java.io  File FileInputStream)))
 
 (def test-files
   [
@@ -34,17 +34,12 @@
    {:file-type :zip :mime-type "application/zip" :path "test/resources/file.zip"}
    ])
 
-;; Helper functions
 (defn- file->bytes [file-path]
   (.readAllBytes (FileInputStream. (File. ^String file-path))))
 
-(defn- file->input-stream [file-path]
+(defn- file->buffered-stream [file-path]
   (FileInputStream. (File. ^String file-path)))
 
-(defn- file->buffered-stream [file-path]
-  (BufferedInputStream. (file->input-stream file-path)))
-
-;; Generic test runner
 (defmacro run-test-cases [test-fn expected-key]
   `(doseq [{path# :path expected# ~expected-key} test-files]
      (clojure.test/is (= expected# (~test-fn path#))
@@ -59,9 +54,6 @@
 (deftest get-mime
   (run-test-cases #(surykatka/get-mime (file->bytes %)) :mime-type))
 
-(deftest get-mime-input-stream
-  (run-test-cases #(surykatka/get-mime (file->input-stream %)) :mime-type))
-
 (deftest should-fail-because-of-wrong-footer
   (are [file-path] (= nil (surykatka/get-mime (file->bytes file-path) {:check-footer true}))
                    "test/resources/file.wrong-footer.jpg"
@@ -72,5 +64,5 @@
                    "test/resources/file.wrong-footer.jpg"))
 
 (deftest input-stream-does-not-verify-footer
-  (are [file-path] (= :jpeg (surykatka/get-file-type (file->input-stream file-path)))
+  (are [file-path] (= :jpeg (surykatka/get-file-type (file->buffered-stream file-path)))
                    "test/resources/file.wrong-footer.jpg"))
