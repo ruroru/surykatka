@@ -43,13 +43,17 @@ If verification of trailing bytes is not wanted:
 | exe                      |
 | gif                      |
 | gzip                     |
+| ico                      |
+| jp2                      |
 | jpeg                     |
 | pdf                      |
 | png                      |
 | postscript               |
+| psd                      |
 | rar                      |
 | shellscript              |
 | tar                      |
+| tiff                     |
 | webp                     |
 | x509-certificate         |
 | x509-certificate-request |
