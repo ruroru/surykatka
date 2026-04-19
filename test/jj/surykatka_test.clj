@@ -1,11 +1,15 @@
 (ns jj.surykatka-test
   (:require [clojure.test :refer [are deftest]]
             [jj.surykatka :as surykatka])
-  (:import (java.io  File FileInputStream)))
+  (:import (java.io File FileInputStream)))
 
 (def test-files
   [
    {:file-type :7z :mime-type "application/7z" :path "test/resources/file.7z"}
+   {:file-type :ico :mime-type "image/vnd.microsoft.icon" :path "test/resources/file.ico"}
+   {:file-type :jp2 :mime-type "image/jp2" :path "test/resources/file.jp2"}
+   {:file-type :psd :mime-type "image/vnd.adobe.photoshop" :path "test/resources/file.psd"}
+   {:file-type :tiff :mime-type "image/tiff" :path "test/resources/file.tiff"}
    {:file-type :bmp :mime-type "image/bmp" :path "test/resources/file.bmp"}
    {:file-type :db :mime-type "application/vnd.sqlite3" :path "test/resources/file.db"}
    {:file-type :elf :mime-type "application/octet-stream" :path "test/resources/file.elf"}

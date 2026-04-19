@@ -2,9 +2,13 @@
  {:type :7z, :mime "application/7z", :headers ((55 122 -68 -81 39 28))}
  {:type :bmp, :mime "image/bmp", :headers ((66 77))}
  {:type :gif, :mime "image/gif", :headers ((71 73 70 56 55 97) (71 73 70 56 57 97))}
- {:type :exe :mime "application/octet-stream" :headers ((77 90 ))}
+ {:type :exe :mime "application/octet-stream" :headers ((77 90))}
+ {:type :ico, :mime "image/vnd.microsoft.icon", :headers ((0 0 1 0))}
+ {:type :jp2, :mime "image/jp2", :headers ((0 0 0 12 106 80 32 32 13 10 -121 10))}
+ {:type :psd, :mime "image/vnd.adobe.photoshop", :headers ((56 66 80 83))}
+ {:type :tiff, :mime "image/tiff", :headers ((73 73 42 0) (77 77 0 42))}
  {:type :rar :mime "application/vnd.rar" :headers ((82 97 114 33 26 7 1 0))}
- {:type :elf :mime "application/octet-stream" :headers ((127 69 76 70 ))}
+ {:type :elf :mime "application/octet-stream" :headers ((127 69 76 70))}
  {:type :gzip, :mime "application/gzip", :headers ((31 -117))}
  {:type :jpeg, :mime "image/jpeg", :footer ([-1 -39]), :headers ((-1 -40) (-1 -39))}
  {:type :pdf, :mime "application/pdf", :headers ((37 80 68 70 45))}
@@ -18,7 +22,7 @@
  {:type :zip, :mime "application/zip", :headers ((80 75 3 4) (80 75 5 6) (80 75 7 8))}
  {:type :db, :mime "application/vnd.sqlite3", :headers ((83 81 76 105 116 101 32 102 111 114 109 97 116 32 51 0))}
  {:type :xml, :mime "application/xml", :headers ((60, 63, 120, 109, 108))}
- {:type :x509-certificate, :mime "application/x-pem-file",
+ {:type    :x509-certificate, :mime "application/x-pem-file",
   :headers ((45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 67, 69, 82, 84, 73, 70, 73, 67, 65, 84, 69, 45, 45, 45, 45, 45))}
  {:type    :x509-certificate-request, :mime "application/x-pem-file"
   :headers ((45 45 45 45 45 66 69 71 73 78 32 67 69 82 84 73 70 73 67 65 84 69 32 82 69 81 85 69 83 84 45 45 45 45 45))
